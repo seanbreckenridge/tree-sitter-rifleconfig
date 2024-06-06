@@ -8,8 +8,6 @@ This is a WIP, so the underlying node/fields might change as the grammar improve
 
 ### Neovim
 
-To automatically set the filetype to `rifleconfig`, you could use an autocmd, `vim.filetype.add` or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconfig` to the top of your config file.
-
 Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file), and then add this to your config:
 
 ```lua
@@ -22,6 +20,10 @@ parser_config.rifleconfig = {
     }
 }
 ```
+
+To automatically set the filetype to `rifleconfig`, you could use an autocmd, add `vim.filetype.add({filename = {['rifle.conf'] = 'rifleconfig'}})` to your startup script, or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconfig` to the top of your config file.
+
+_close nvim and open your rifle.conf_
 
 - `:TSInstall rifleconfig`
 - `:edit`
