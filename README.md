@@ -1,6 +1,6 @@
 # tree-sitter-rifleconfig
 
-This is a tree-sitter grammar for the [rifle](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) config file, which is a file-launcher for the [ranger](https://github.com/ranger/ranger/) terminal file browser.
+This is a tree-sitter grammar for your [rifle config](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) file, which is a file-launcher for [ranger](https://github.com/ranger/ranger/) (a terminal filemanager).
 
 This currently parses the config file into basic tokens/conditions/expressions. Once you've installed you can see that with `:InspectTree`
 
