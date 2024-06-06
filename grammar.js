@@ -72,7 +72,11 @@ module.exports = grammar({
 
     // LHS: conditions needed to run a command
     conditions: ($) =>
-      seq($.condition_expression, repeat(seq(",", $.condition_expression))),
+      seq(
+        $.condition_expression,
+        repeat(seq(",", $.condition_expression)),
+        optional(","),
+      ),
 
     string: (_) => /"[^"]*"/,
     word: ($) => choice($.identifier, $.string),
