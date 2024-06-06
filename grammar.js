@@ -4,8 +4,7 @@ module.exports = grammar({
   extras: ($) => [$._spaces],
 
   rules: {
-    source_file: ($) =>
-      repeat(choice($.rule, $._end_of_line)),
+    source_file: ($) => repeat(choice($.rule, $._end_of_line)),
 
     comment: (_) => /#[^\n]*/,
     _spaces: (_) => /[ \t]+/,
@@ -62,11 +61,9 @@ module.exports = grammar({
     binary_condition_expression: ($) =>
       seq($.binary_condition_identifier, $._spaces, $.identifier),
 
-    condition_negation: (_) => "!",
-
     condition_expression: ($) =>
       seq(
-        optional($.condition_negation),
+        optional(alias("!", $.condition_negation)),
         choice($.binary_condition_expression, $.unary_condition_identifier),
       ),
 
@@ -78,17 +75,17 @@ module.exports = grammar({
         optional(","),
       ),
 
-    string: (_) => /"[^"]*"/,
-    word: ($) => choice($.identifier, $.string),
+    word: ($) => choice($.identifier, alias(/"[^"]*"/, $.string)),
 
     command: ($) =>
       prec.right(seq($.word, repeat(choice($.word, $._spaces, ";")))),
 
-    ask: (_) => "ask",
-
     // RHS: what gets run when all conditions are matched
     command_list: ($) =>
-      choice(prec.left(2, $.ask), prec.left(1, repeat1($.command))),
+      choice(
+        prec.left(2, alias("ask", $.ask)),
+        prec.left(1, repeat1($.command)),
+      ),
 
     // each line is like:
     // condition1, [condition2, ...] = command

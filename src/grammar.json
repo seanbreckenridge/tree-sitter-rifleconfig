@@ -230,10 +230,6 @@
         }
       ]
     },
-    "condition_negation": {
-      "type": "STRING",
-      "value": "!"
-    },
     "condition_expression": {
       "type": "SEQ",
       "members": [
@@ -241,8 +237,13 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "condition_negation"
+              "type": "ALIAS",
+              "content": {
+                "type": "STRING",
+                "value": "!"
+              },
+              "named": true,
+              "value": "condition_negation"
             },
             {
               "type": "BLANK"
@@ -301,10 +302,6 @@
         }
       ]
     },
-    "string": {
-      "type": "PATTERN",
-      "value": "\"[^\"]*\""
-    },
     "word": {
       "type": "CHOICE",
       "members": [
@@ -313,8 +310,13 @@
           "name": "identifier"
         },
         {
-          "type": "SYMBOL",
-          "name": "string"
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "\"[^\"]*\""
+          },
+          "named": true,
+          "value": "string"
         }
       ]
     },
@@ -351,10 +353,6 @@
         ]
       }
     },
-    "ask": {
-      "type": "STRING",
-      "value": "ask"
-    },
     "command_list": {
       "type": "CHOICE",
       "members": [
@@ -362,8 +360,13 @@
           "type": "PREC_LEFT",
           "value": 2,
           "content": {
-            "type": "SYMBOL",
-            "name": "ask"
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "ask"
+            },
+            "named": true,
+            "value": "ask"
           }
         },
         {
