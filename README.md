@@ -2,9 +2,9 @@
 
 This is a [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for your [rifle config](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) file, which is a file-launcher for [ranger](https://github.com/ranger/ranger/) (a terminal filemanager).
 
-This is a WIP; It currently parses the config file into basic tokens/conditions/expressions:
+This is a WIP; It currently parses the config file into basic tokens/conditions/expressions, and highlights the buffer:
 
-![2024-06-05--17_45_42](https://github.com/seanbreckenridge/tree-sitter-rifleconfig/assets/7804791/5dadf935-5cb9-4f81-8f2c-8fa12b542ca6)
+![image](https://github.com/seanbreckenridge/tree-sitter-rifleconfig/assets/7804791/7d62fa37-6232-4903-a2b5-88cc6910b318)
 
 ### Neovim
 
@@ -29,4 +29,4 @@ parser_config.rifleconfig = {
 
 For syntax highlighting, copy the `./queries/rifleconfig/highlights.scm` file to `~/.config/nvim/queries/rifleconfig/highlights.scm`
 
-For comment support, add `vim.opt_local.commentstring = "-- %s"` to `~/.config/nvim/after/ftplugin/rifleconfig.lua`
+For comment support (see `:help commenting`), add `vim.opt_local.commentstring = "-- %s"` to `~/.config/nvim/after/ftplugin/rifleconfig.lua`
