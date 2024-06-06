@@ -24,7 +24,7 @@
     "fields": {}
   },
   {
-    "type": "command_list",
+    "type": "command",
     "named": true,
     "fields": {},
     "children": {
@@ -33,6 +33,25 @@
       "types": [
         {
           "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ask",
+          "named": true
+        },
+        {
+          "type": "command",
           "named": true
         }
       ]
@@ -152,6 +171,10 @@
     "named": false
   },
   {
+    "type": ";",
+    "named": false
+  },
+  {
     "type": "=",
     "named": false
   },
@@ -170,6 +193,10 @@
   {
     "type": "]",
     "named": false
+  },
+  {
+    "type": "ask",
+    "named": true
   },
   {
     "type": "comment",

@@ -327,7 +327,7 @@
         }
       ]
     },
-    "command_list": {
+    "command": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
@@ -349,12 +349,44 @@
                 {
                   "type": "SYMBOL",
                   "name": "_spaces"
+                },
+                {
+                  "type": "STRING",
+                  "value": ";"
                 }
               ]
             }
           }
         ]
       }
+    },
+    "ask": {
+      "type": "STRING",
+      "value": "ask"
+    },
+    "command_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
+          "content": {
+            "type": "SYMBOL",
+            "name": "ask"
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 1,
+          "content": {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "command"
+            }
+          }
+        }
+      ]
     },
     "rule": {
       "type": "SEQ",

@@ -1,6 +1,9 @@
 (comment) @comment @spell
 
-"," @punctuation.delimiter
+[
+ ","
+ ";"
+]@punctuation.delimiter
 
 "=" @operator
 
@@ -9,5 +12,7 @@
 
 (condition_expression
   (unary_condition_identifier) @function.builtin)
+
+(ask) @function.builtin
 
 (string) @string

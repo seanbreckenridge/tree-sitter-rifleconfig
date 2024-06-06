@@ -81,9 +81,14 @@ module.exports = grammar({
     string: (_) => /"[^"]*"/,
     word: ($) => choice($.identifier, $.string),
 
+    command: ($) =>
+      prec.right(seq($.word, repeat(choice($.word, $._spaces, ";")))),
+
+    ask: (_) => "ask",
+
     // RHS: what gets run when all conditions are matched
     command_list: ($) =>
-      prec.right(seq($.word, repeat(choice($.word, $._spaces)))),
+      choice(prec.left(2, $.ask), prec.left(1, repeat1($.command))),
 
     // each line is like:
     // condition1, [condition2, ...] = command
