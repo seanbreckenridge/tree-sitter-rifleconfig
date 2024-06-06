@@ -5,7 +5,7 @@ module.exports = grammar({
 
   rules: {
     source_file: ($) =>
-      repeat(choice(seq($.rule, $._end_of_line), $._end_of_line)),
+      repeat(choice($.rule, $._end_of_line)),
 
     comment: (_) => /#[^\n]*/,
     _spaces: ($) => /[ \t]+/,

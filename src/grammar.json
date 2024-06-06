@@ -7,17 +7,8 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "rule"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_end_of_line"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "rule"
           },
           {
             "type": "SYMBOL",

@@ -1,0 +1,196 @@
+===============
+Basic Comment
+===============
+
+# Something
+
+---
+
+(source_file
+	(comment))
+
+===============
+Statement with comment
+===============
+
+ext desktop, X, flag f = dex "$@"  # desktop files
+
+---
+
+(source_file
+	(rule
+		(conditions
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(unary_condition_identifier))
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier))))
+		(command_list
+			(command
+				(word
+					(identifier))
+				(word
+					(string))))
+		(comment)))
+
+===============
+Regex statements
+===============
+
+ext ipynb, mime *.json, ext s[wmf]c, flag fc, = echo yes; ttt $VISUAL -- "$@"
+
+---
+
+(source_file
+	(rule
+		(conditions
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier))))
+		(command_list
+			(command
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(string))))))
+
+
+============
+ask
+============
+
+label open, terminal,= ask  # prompt me
+
+---
+
+(source_file
+	(rule
+		(conditions
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(unary_condition_identifier)))
+		(command_list
+			(ask))
+		(comment)))
+
+============
+Double Comma Error; Regression test, to keep track of current behaviour, idk if this actually is intended
+:error
+============
+
+ext ipynb,, = bash
+
+-------------------------------------------------
+
+===========
+Negation
+============
+
+mime ^audio, !mime audio/midi, flag t =mpv -- "$@"
+
+---------
+
+    (source_file
+      (rule
+        (conditions
+          (condition_expression
+            (binary_condition_expression
+              (binary_condition_identifier)
+              (identifier)))
+          (condition_expression
+            (condition_negation)
+            (binary_condition_expression
+              (binary_condition_identifier)
+              (identifier)))
+          (condition_expression
+            (binary_condition_expression
+              (binary_condition_identifier)
+              (identifier))))
+        (command_list
+          (command
+            (word
+              (identifier))
+            (word
+              (identifier))
+            (word
+              (string))))))
+
+========
+Ask errors with multi words
+:error
+========
+
+label other, else = ask breaks
+
+----------
+
+:error
+
+================
+With semicolons
+================
+
+ext tar|gz|bz2|xz, has tar = for file in "$@"; do tar vvxf "$file"; done
+
+------------
+
+(source_file
+	(rule
+		(conditions
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier))))
+		(command_list
+			(command
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(string))
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(string))
+				(word
+					(identifier))))))
