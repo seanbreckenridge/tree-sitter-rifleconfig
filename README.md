@@ -18,15 +18,14 @@ To automatically set the filetype to `rifleconfig`, you could use an autocmd, `v
 Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file), and then add this to your config:
 
 ```lua
-local parser_config =
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-    parser_config.rifleconfig = {
-        install_info = {
-            url = "https://github.com/seanbreckenridge/tree-sitter-rifleconfig",
-            files = {"src/parser.c"},
-            branch = "main"
-        }
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.rifleconfig = {
+    install_info = {
+        url = "https://github.com/seanbreckenridge/tree-sitter-rifleconfig",
+        files = {"src/parser.c"},
+        branch = "main"
     }
+}
 ```
 
 - `:TSInstall rifleconfig`
