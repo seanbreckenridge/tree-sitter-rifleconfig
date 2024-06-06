@@ -27,6 +27,11 @@ parser_config.rifleconfig = {
 - `:edit`
 - `:InspectTree`
 
-For syntax highlighting, copy the `./queries/rifleconfig/highlights.scm` file to `~/.config/nvim/queries/rifleconfig/highlights.scm`, or clone the repo and add it to your `runtimepath`
+For syntax highlighting and `commenting` support, you can copy the files in `after` to your `runtimepath`, or just install this repository with your plugin manager. E.g. for [`lazy`](https://github.com/folke/lazy.nvim):
 
-For comment support (see `:help commenting`), add `vim.opt_local.commentstring = "-- %s"` to `~/.config/nvim/after/ftplugin/rifleconfig.lua`
+```lua
+{
+    'seanbreckenridge/tree-sitter-rifleconfig',
+    ft = 'rifleconfig',
+}
+```
