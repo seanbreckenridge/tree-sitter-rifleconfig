@@ -1,5 +1,9 @@
 # tree-sitter-rifleconfig
 
+This is a tree-sitter grammar for the [rifle](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) config file, which is a file-launcher for the [ranger](https://github.com/ranger/ranger/) terminal file browser.
+
+Still a work in progress, plan is to add a `highlights.scm` file next so this highlights the config file nicely.
+
 For neovim,
 
 Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file), and then add this to your config:
