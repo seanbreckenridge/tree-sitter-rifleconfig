@@ -21,16 +21,16 @@ module.exports = grammar({
     //
     binary_condition_identifier: (_) =>
       choice(
-        "match",
-        "ext",
-        "mime",
-        "name",
-        "path",
-        "has",
-        "env",
-        "number",
-        "flag",
-        "label",
+        "match", // regex
+        "ext", // regex
+        "mime", // regex
+        "name", // regex
+        "path", // regex
+        "has", // shell command or environment variable
+        "env", // environment variable
+        "number", // integer
+        "flag", // [A-Za-z]
+        "label", // regex
       ),
 
     // https://github.com/tree-sitter/tree-sitter-javascript/blob/391a8fcc48a11f63bf18ec9885f6f069e760949a/grammar.js#L1022
