@@ -2,7 +2,12 @@
 
 This is a tree-sitter grammar for the [rifle](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) config file, which is a file-launcher for the [ranger](https://github.com/ranger/ranger/) terminal file browser.
 
-Still a work in progress, plan is to add a `highlights.scm` file next so this highlights the config file nicely.
+This currently parses the config file into basic tokens/conditions/expressions. Once you've installed you can see that with `:InspectTree`
+
+TODO:
+
+- [ ] add a `highlights.scm` file next so this highlights the config file nicely.
+- [ ] add tests
 
 For neovim,
 
