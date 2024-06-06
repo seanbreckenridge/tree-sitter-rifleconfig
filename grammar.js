@@ -61,8 +61,14 @@ module.exports = grammar({
     // re.search every time
     binary_condition_expression: ($) =>
       seq($.binary_condition_identifier, $._spaces, $.identifier),
+
+    condition_negation: (_) => "!",
+
     condition_expression: ($) =>
-      choice($.binary_condition_expression, $.unary_condition_identifier),
+      seq(
+        optional($.condition_negation),
+        choice($.binary_condition_expression, $.unary_condition_identifier),
+      ),
 
     // LHS: conditions needed to run a command
     conditions: ($) =>
@@ -77,7 +83,6 @@ module.exports = grammar({
 
     // each line is like:
     // condition1, [condition2, ...] = command
-    rule: ($) =>
-      seq($.conditions, "=", $.command_list, $._end_of_line),
+    rule: ($) => seq($.conditions, "=", $.command_list, $._end_of_line),
   },
 });

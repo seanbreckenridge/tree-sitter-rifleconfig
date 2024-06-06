@@ -239,16 +239,37 @@
         }
       ]
     },
+    "condition_negation": {
+      "type": "STRING",
+      "value": "!"
+    },
     "condition_expression": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "binary_condition_expression"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "condition_negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "unary_condition_identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "binary_condition_expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "unary_condition_identifier"
+            }
+          ]
         }
       ]
     },

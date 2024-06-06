@@ -43,11 +43,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "binary_condition_expression",
+          "named": true
+        },
+        {
+          "type": "condition_negation",
           "named": true
         },
         {
@@ -169,6 +173,10 @@
   },
   {
     "type": "comment",
+    "named": true
+  },
+  {
+    "type": "condition_negation",
     "named": true
   },
   {
