@@ -37,3 +37,14 @@ For syntax highlighting and `commenting` support, you can copy the files in `aft
     ft = 'rifleconfig',
 }
 ```
+
+If you want to highlight the commands in each rule with the `bash` tree-sitter parser, `:TSInstall bash`, and then copy this into your `~/.config/nvim/queries/rifleconfig/injections.scm`:
+
+```lisp
+; extends
+
+(command_list
+  (command) @injection.content
+  (#set! injection.include-children)
+  (#set! injection.language "bash"))
+```
