@@ -4,6 +4,8 @@ This is a tree-sitter grammar for the [rifle](https://github.com/ranger/ranger/b
 
 This currently parses the config file into basic tokens/conditions/expressions. Once you've installed you can see that with `:InspectTree`
 
+![2024-06-05--17_45_42](https://github.com/seanbreckenridge/tree-sitter-rifleconfig/assets/7804791/5dadf935-5cb9-4f81-8f2c-8fa12b542ca6)
+
 TODO:
 
 - [ ] add a `highlights.scm` file next so this highlights the config file nicely.
