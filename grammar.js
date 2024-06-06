@@ -78,6 +78,6 @@ module.exports = grammar({
     // each line is like:
     // condition1, [condition2, ...] = command
     rule: ($) =>
-      seq($.conditions, "=", prec.left($.command_list), $._end_of_line),
+      seq($.conditions, "=", $.command_list, $._end_of_line),
   },
 });

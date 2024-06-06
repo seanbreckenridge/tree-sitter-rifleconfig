@@ -335,12 +335,8 @@
           "value": "="
         },
         {
-          "type": "PREC_LEFT",
-          "value": 0,
-          "content": {
-            "type": "SYMBOL",
-            "name": "command_list"
-          }
+          "type": "SYMBOL",
+          "name": "command_list"
         },
         {
           "type": "SYMBOL",
