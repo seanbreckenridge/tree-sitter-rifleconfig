@@ -2,7 +2,7 @@
 
 This is a [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for your [rifle config](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) file, which is a file-launcher for [ranger](https://github.com/ranger/ranger/) (a terminal filemanager).
 
-This is a WIP; It currently parses the config file into basic tokens/conditions/expressions, and highlights the buffer:
+This is a WIP, so the underlying node/fields might change as the grammar improves, but it is good enough to use for highlighting -- it currently parses the config file into conditions/expressions, and highlights the buffer:
 
 ![image](https://github.com/seanbreckenridge/tree-sitter-rifleconfig/assets/7804791/7d62fa37-6232-4903-a2b5-88cc6910b318)
 
