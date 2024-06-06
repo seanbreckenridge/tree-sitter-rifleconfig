@@ -13,21 +13,17 @@ TODO:
 
 ### Neovim
 
-To automatically set the filetype to `rifleconfig`, you could use an autocmd, or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconfig` to the top of your config file.
+To automatically set the filetype to `rifleconfig`, you could use an autocmd, `vim.filetype.add` or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconfig` to the top of your config file.
 
 Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file), and then add this to your config:
 
 ```lua
-vim.filetype.add({extension = {rifleconfig = "rifleconfig"}})
-
 local parser_config =
     local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
     parser_config.rifleconfig = {
         install_info = {
-            -- url = "~/Repos/tree-sitter-rifleconfig",
             url = "https://github.com/seanbreckenridge/tree-sitter-rifleconfig",
-            files = {"src/parser.c"}, -- note that some parsers also require src/scanner.c or src/scanner.cc
-            requires_generate_from_grammar = false,
+            files = {"src/parser.c"},
             branch = "main"
         }
     }
