@@ -8,7 +8,7 @@ module.exports = grammar({
       repeat(choice($.rule, $._end_of_line)),
 
     comment: (_) => /#[^\n]*/,
-    _spaces: ($) => /[ \t]+/,
+    _spaces: (_) => /[ \t]+/,
 
     // a comment, or the end of the line
     _end_of_line: ($) =>
