@@ -506,7 +506,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 5:
       if (lookahead == '"') ADVANCE(87);
-      if (lookahead != 0) ADVANCE(5);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(5);
       END_STATE();
     case 6:
       if (lookahead == ',') ADVANCE(86);
@@ -788,7 +789,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 83:
       ACCEPT_TOKEN(aux_sym_identifier_token3);
       if (lookahead == '"') ADVANCE(87);
-      if (lookahead != 0) ADVANCE(5);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(5);
       END_STATE();
     case 84:
       ACCEPT_TOKEN(aux_sym_identifier_token3);

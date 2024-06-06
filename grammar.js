@@ -75,7 +75,7 @@ module.exports = grammar({
         optional(","),
       ),
 
-    word: ($) => choice($.identifier, alias(/"[^"]*"/, $.string)),
+    word: ($) => choice($.identifier, alias(/"[^"\n]*"/, $.string)),
 
     command: ($) =>
       prec.right(seq($.word, repeat(choice($.word, $._spaces, ";")))),

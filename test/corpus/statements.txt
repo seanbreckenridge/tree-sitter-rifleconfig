@@ -194,3 +194,16 @@ ext tar|gz|bz2|xz, has tar = for file in "$@"; do tar vvxf "$file"; done
 					(string))
 				(word
 					(identifier))))))
+
+======
+No multiline strings
+:error
+======
+
+number 2 = echo "
+"
+
+---------
+
+:error
+
