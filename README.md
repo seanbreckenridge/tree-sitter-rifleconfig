@@ -10,7 +10,7 @@ The underlying node/fields might change as the grammar improves, but it is good 
 
 ### Neovim
 
-Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file), and then add this to your config:
+Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter), and then add this to your config:
 
 ```lua
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
