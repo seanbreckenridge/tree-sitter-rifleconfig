@@ -18,7 +18,7 @@ module.exports = grammar({
 
     unary_condition_identifier: (_) =>
       choice("X", "file", "directory", "terminal", "else"),
-    //
+
     binary_condition_identifier: (_) =>
       choice(
         "match", // regex
@@ -26,8 +26,8 @@ module.exports = grammar({
         "mime", // regex
         "name", // regex
         "path", // regex
-        "has", // shell command or environment variable
-        "env", // environment variable
+        "has", // regex (shell command or environment variable)
+        "env", // regex (environment variable)
         "number", // integer
         "flag", // [A-Za-z]
         "label", // regex
