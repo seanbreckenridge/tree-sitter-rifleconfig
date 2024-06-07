@@ -2,7 +2,9 @@
 
 This is a [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for your [rifle config](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) file, which is a file-launcher for [ranger](https://github.com/ranger/ranger/) (a terminal filemanager).
 
-This is a WIP, so the underlying node/fields might change as the grammar improves, but it is good enough to use for highlighting -- it currently parses the config file into conditions/expressions, and highlights the buffer:
+This successfully parses the default config, my config and anything else I can think to throw at it, but if you notice errors please create an issue!
+
+The underlying node/fields might change as the grammar improves, but it is good enough to use for highlighting -- it currently parses the config file into conditions/expressions, and highlights the buffer:
 
 ![image](https://github.com/seanbreckenridge/tree-sitter-rifleconfig/assets/7804791/739bde0c-1907-41cc-a6ec-7cc3abf96dea)
 
@@ -19,6 +21,9 @@ parser_config.rifleconfig = {
         branch = "main"
     }
 }
+
+-- then setup like normal...
+-- require('nvim-treesitter.configs').setup({
 ```
 
 To automatically set the filetype to `rifleconfig`, you could use an autocmd, add `vim.filetype.add({filename = {['rifle.conf'] = 'rifleconfig'}})` to your startup script, or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconfig` to the top of your config file.
