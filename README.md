@@ -34,7 +34,7 @@ _close nvim and open your rifle.conf_
 - `:edit`
 - `:InspectTree`
 
-For syntax highlighting and `commenting` support, you can copy the files in `after` to your `runtimepath`, or just install this repository with your plugin manager. E.g. for [`lazy`](https://github.com/folke/lazy.nvim):
+For syntax highlighting and `commenting` support, you can copy the files in `queries` and `after` to your `runtimepath`, or just install this repository with your plugin manager. E.g. for [`lazy`](https://github.com/folke/lazy.nvim):
 
 ```lua
 {
