@@ -1,6 +1,6 @@
 # tree-sitter-rifleconfig
 
-This is a [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for your [rifle config](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) file, which is a file-launcher for [ranger](https://github.com/ranger/ranger/) (a terminal filemanager).
+This is a [`tree-sitter`](https://tree-sitter.github.io/tree-sitter/) grammar for your [`rifle config`](https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf) file. `rifle` is a file-launcher for [`ranger`](https://github.com/ranger/ranger/) (a terminal filemanager).
 
 This successfully parses the default config, my config and anything else I can think to throw at it, but if you notice errors please create an issue!
 
