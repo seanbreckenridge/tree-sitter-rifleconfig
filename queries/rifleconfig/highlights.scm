@@ -9,15 +9,15 @@
 
 "=" @operator
 
-(binary_condition_identifier) @function.builtin
+(binary_condition_identifier) @keyword
 
-(unary_condition_identifier) @function.builtin
+(unary_condition_identifier) @keyword
 
 (condition_expression
   (binary_condition_expression
-    (binary_condition_identifier) @keyword_name
+    (binary_condition_identifier) @kw_name
     (identifier) @number)
-  (#eq? @keyword_name "number"))
+  (#eq? @kw_name "number"))
 
 (ask) @function.builtin
 
