@@ -73,7 +73,7 @@ module.exports = grammar({
     // LHS: conditions needed to run a command
     conditions: ($) =>
       seq(
-        optional(repeat(",")),
+        optional(repeat(choice(",", $._spaces))),
         $.condition_expression,
         // ignore repeat before, in between conditions, or trailing
         // if a condition is an empty string, its treated as True and ignored -

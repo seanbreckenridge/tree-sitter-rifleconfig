@@ -278,8 +278,17 @@
             {
               "type": "REPEAT",
               "content": {
-                "type": "STRING",
-                "value": ","
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_spaces"
+                  }
+                ]
               }
             },
             {
