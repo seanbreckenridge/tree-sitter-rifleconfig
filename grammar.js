@@ -9,11 +9,13 @@ module.exports = grammar({
     comment: (_) => /#[^\n]*/,
     _spaces: (_) => /[ \t]+/,
 
+    _linebreak: (_) => /\r?\n/,
+
     // a comment, or the end of the line
     _end_of_line: ($) =>
       choice(
-        seq(optional($._spaces), $.comment, /\r?\n/),
-        seq(optional($._spaces), /\r?\n/),
+        seq(optional($._spaces), $.comment, $._linebreak),
+        seq(optional($._spaces), $._linebreak),
       ),
 
     unary_condition_identifier: (_) =>
@@ -57,7 +59,8 @@ module.exports = grammar({
 
     // the identifier here has to be a regex-like statement because
     // its used as one in python. even a basic string is called with
-    // re.search every time
+    // re.search:
+    // https://github.com/ranger/ranger/blob/38bb8901004b75a407ffee4b9e176bc0a436cb15/ranger/ext/rifle.py#L273-L282
     binary_condition_expression: ($) =>
       seq($.binary_condition_identifier, $._spaces, $.identifier),
 
@@ -70,7 +73,11 @@ module.exports = grammar({
     // LHS: conditions needed to run a command
     conditions: ($) =>
       seq(
+        optional(repeat(",")),
         $.condition_expression,
+        // ignore repeat before, in between conditions, or trailing
+        // if a condition is an empty string, its treated as True and ignored -
+        // it is valid configuration
         repeat(seq(repeat1(","), $.condition_expression)),
         optional(repeat(",")),
       ),

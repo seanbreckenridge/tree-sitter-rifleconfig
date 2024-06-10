@@ -127,7 +127,7 @@ ext ipynb,,, = bash
 Ignore Multiple Internal Commas
 ============
 
-ext ipynb,,, flag f, = bash
+,,ext ipynb,,, flag f, = bash
 
 ---------
 

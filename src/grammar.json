@@ -25,6 +25,10 @@
       "type": "PATTERN",
       "value": "[ \\t]+"
     },
+    "_linebreak": {
+      "type": "PATTERN",
+      "value": "\\r?\\n"
+    },
     "_end_of_line": {
       "type": "CHOICE",
       "members": [
@@ -48,8 +52,8 @@
               "name": "comment"
             },
             {
-              "type": "PATTERN",
-              "value": "\\r?\\n"
+              "type": "SYMBOL",
+              "name": "_linebreak"
             }
           ]
         },
@@ -69,8 +73,8 @@
               ]
             },
             {
-              "type": "PATTERN",
-              "value": "\\r?\\n"
+              "type": "SYMBOL",
+              "name": "_linebreak"
             }
           ]
         }
@@ -268,6 +272,21 @@
     "conditions": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "STRING",
+                "value": ","
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "SYMBOL",
           "name": "condition_expression"

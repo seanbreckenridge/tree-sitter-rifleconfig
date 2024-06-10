@@ -4,7 +4,7 @@ This is a [`tree-sitter`](https://tree-sitter.github.io/tree-sitter/) grammar fo
 
 This successfully parses the default config, my config and anything else I can think to throw at it, but if you notice errors please create an issue!
 
-The underlying node/fields might change as the grammar improves, but it is good enough to use for highlighting -- it currently parses the config file into conditions/expressions, and highlights the buffer:
+This parses the config file into conditions/expressions, and highlights the buffer:
 
 ![image](https://github.com/seanbreckenridge/tree-sitter-rifleconfig/assets/7804791/739bde0c-1907-41cc-a6ec-7cc3abf96dea)
 
