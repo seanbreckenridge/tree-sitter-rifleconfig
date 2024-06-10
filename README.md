@@ -26,7 +26,10 @@ parser_config.rifleconfig = {
 -- require('nvim-treesitter.configs').setup({
 ```
 
-To automatically set the filetype to `rifleconfig`, you could use an autocmd, add `vim.filetype.add({filename = {['rifle.conf'] = 'rifleconfig'}})` to your startup script, or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconfig` to the top of your config file.
+To automatically set the filetype to `rifleconfig`:
+
+- add `vim.filetype.add({filename = {['rifle.conf'] = 'rifleconfig'}})` to your startup script
+- or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconfig` to the top of your config file.
 
 _close nvim and open your rifle.conf_
 
