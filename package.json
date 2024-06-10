@@ -29,8 +29,6 @@
   "files": [
     "grammar.js",
     "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
     "queries/*",
     "src/**"
   ],
