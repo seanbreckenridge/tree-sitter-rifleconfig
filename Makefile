@@ -1,6 +1,7 @@
 VERSION := 0.0.1
 
-LANGUAGE_NAME := tree-sitter-rifleconfig
+LANGSHORT := rifleconfig
+LANGUAGE_NAME := tree-sitter-$(LANGSHORT)
 
 # repository
 SRC_DIR := src
@@ -97,7 +98,7 @@ uninstall:
 		'$(DESTDIR)$(PCLIBDIR)'/$(LANGUAGE_NAME).pc
 
 clean:
-	$(RM) $(OBJS) $(LANGUAGE_NAME).pc lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT)
+	$(RM) $(OBJS) $(LANGUAGE_NAME).pc lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT) $(LANGSHORT).so
 
 test:
 	$(TS) test
