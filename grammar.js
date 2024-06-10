@@ -71,8 +71,8 @@ module.exports = grammar({
     conditions: ($) =>
       seq(
         $.condition_expression,
-        repeat(seq(",", $.condition_expression)),
-        optional(","),
+        repeat(seq(repeat1(","), $.condition_expression)),
+        optional(repeat(",")),
       ),
 
     word: ($) => choice($.identifier, alias(/"[^"\n]*"/, $.string)),

@@ -103,13 +103,49 @@ label open, terminal,= ask  # prompt me
 		(comment)))
 
 ============
-Double Comma Error; Regression test, to keep track of current behaviour, idk if this actually is intended
-:error
+Ignore Multiple Trailing Commas
 ============
 
-ext ipynb,, = bash
+ext ipynb,,, = bash
 
--------------------------------------------------
+--------
+
+(source_file
+	(rule
+		(conditions
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier))))
+		(command_list
+			(command
+				(word
+					(identifier))))))
+
+
+============
+Ignore Multiple Internal Commas
+============
+
+ext ipynb,,, flag f, = bash
+
+---------
+
+(source_file
+	(rule
+		(conditions
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier))))
+		(command_list
+			(command
+				(word
+					(identifier))))))
 
 ===========
 Negation
@@ -119,30 +155,30 @@ mime ^audio, !mime audio/midi, flag t =mpv -- "$@"
 
 ---------
 
-    (source_file
-      (rule
-        (conditions
-          (condition_expression
-            (binary_condition_expression
-              (binary_condition_identifier)
-              (identifier)))
-          (condition_expression
-            (condition_negation)
-            (binary_condition_expression
-              (binary_condition_identifier)
-              (identifier)))
-          (condition_expression
-            (binary_condition_expression
-              (binary_condition_identifier)
-              (identifier))))
-        (command_list
-          (command
-            (word
-              (identifier))
-            (word
-              (identifier))
-            (word
-              (string))))))
+(source_file
+	(rule
+		(conditions
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(condition_negation)
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier)))
+			(condition_expression
+				(binary_condition_expression
+					(binary_condition_identifier)
+					(identifier))))
+		(command_list
+			(command
+				(word
+					(identifier))
+				(word
+					(identifier))
+				(word
+					(string))))))
 
 ========
 Ask errors with multi words
