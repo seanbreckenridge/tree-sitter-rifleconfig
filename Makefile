@@ -73,6 +73,9 @@ ifneq ($(STRIP),)
 	$(STRIP) $@
 endif
 
+$(SRC_DIR)/grammar.json: grammar.js
+	$(TS) generate --no-bindings
+
 $(PARSER): $(SRC_DIR)/grammar.json
 	$(TS) generate --no-bindings $^
 
@@ -99,4 +102,7 @@ clean:
 test:
 	$(TS) test
 
-.PHONY: all install uninstall clean test
+test-my-config: lib$(LANGUAGE_NAME).$(SOEXT)
+	$(TS) parse ~/.config/ranger/rifle.conf
+
+.PHONY: all install uninstall clean test test-my-config
