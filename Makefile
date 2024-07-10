@@ -99,6 +99,7 @@ uninstall:
 
 clean:
 	$(RM) $(OBJS) $(LANGUAGE_NAME).pc lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT) $(LANGSHORT).so
+	$(RM) -rf target build
 
 test:
 	$(TS) test
